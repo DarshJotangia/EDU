@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+<br>
+<script>
+    function imgpath(path){
+        return path + ".jpeg"
+    }
+</script>
+{% block body %}
+    {% for items in data %}
+        <div>
+            <form method="POST" action="/products/{{items}}">
+                {% csrf_token %}
+                {{items.name}}
+                <br>
+                {{items.description}}
+                <br>
+                {{items.price}}
+                <br>
+                 {% comment %} <img src="{% static '1.jpeg' %}"> {% endcomment %}
+                {% comment %} <img src={{path}}+"/{{items.id}}.jpeg">  {% endcomment %}
+                <button type='submit'>Add to cart</button>
+            </form>
+        </div>
+        <br>    
+    {% endfor %}
+
+{% endblock body %}

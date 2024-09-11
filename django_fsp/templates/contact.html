@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block body%}
+<br>
+    <form method="POST" action='/contact/'>
+        {% csrf_token %}
+        <div align='center'>
+        Name: <input required type='text' id='name' name='name'/>
+        <br>
+        Email: <input required type='email' id='email' name='email'>
+        <br>
+        Message: <textarea required id='message' name='message'></textarea>
+        <br>
+        <button type='submit'>Submit</button>
+        </div>
+    </form>
+{% endblock body%}

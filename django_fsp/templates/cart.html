@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+<br>
+{% block body %}
+    {% for items in data %}
+        <div>
+                {{items.name}}
+                <br>
+                {{items.price}}
+                <br>
+        </div>
+        <br>    
+    {% endfor %}
+    Total : {{total}} in Lakhs
+    <form method='POST' action='/cart/'>
+        {% csrf_token %}
+        <button type='submit'>Empty Cart</button>
+    </form>
+{% endblock body %}
+
